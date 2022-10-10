@@ -1,0 +1,73 @@
+div {
+    margin: 0%;
+}
+
+.Header {
+    display:block;
+    width:100%;
+    text-align: center;
+    background-color:black;
+    height: 3%;
+}
+
+.Header p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:ghostwhite;
+}
+
+
+
+.Main {
+    display: block;
+    background-image: url("sat.png") ;
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    background-size: 45%;
+}
+
+.Quote  {
+    display: block;
+    height:89%;
+}
+
+.Quote p {
+    display: block;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+p.space {
+    height:10%;
+}
+
+p.texte {
+    font-size: 3em;
+    width: 60%;
+    margin-left: 40%;
+}
+
+p.author {
+    color:grey;
+    margin-left: 80%;
+}
+
+
+.Footer {
+    display:block;
+    width:100%;
+    text-align: center;
+    background-color:black;
+    height: 3%;
+}
+
+.Footer p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:ghostwhite;
+}
