@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "2de62ca0-7ab6-4a58-8254-50bab04041b9",
+		"name": "Bechtle",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2681429"
+	},
+	"item": [
+		{
+			"name": "Create category",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"gl_category\"\r\n}"
+				},
+				"url": {
+					"raw": "https://{{PC_IP}}:9440/api/nutanix/v3/categories/gl_category",
+					"protocol": "https",
+					"host": [
+						"{{PC_IP}}"
+					],
+					"port": "9440",
+					"path": [
+						"api",
+						"nutanix",
+						"v3",
+						"categories",
+						"gl_category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create value Yes for the category",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"value\": \"yes\"\r\n}"
+				},
+				"url": {
+					"raw": "https://{{PC_IP}}:9440/api/nutanix/v3/categories/gl_category/yes",
+					"protocol": "https",
+					"host": [
+						"{{PC_IP}}"
+					],
+					"port": "9440",
+					"path": [
+						"api",
+						"nutanix",
+						"v3",
+						"categories",
+						"gl_category",
+						"yes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create value No for the category",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"value\": \"no\"\r\n}"
+				},
+				"url": {
+					"raw": "https://{{PC_IP}}:9440/api/nutanix/v3/categories/gl_category/no",
+					"protocol": "https",
+					"host": [
+						"{{PC_IP}}"
+					],
+					"port": "9440",
+					"path": [
+						"api",
+						"nutanix",
+						"v3",
+						"categories",
+						"gl_category",
+						"no"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get VM details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n}"
+				},
+				"url": {
+					"raw": "https://{{PC_IP}}:9440/api/nutanix/v3/vms/0f67fb06-1d17-4590-bc54-33c6c1125b47",
+					"protocol": "https",
+					"host": [
+						"{{PC_IP}}"
+					],
+					"port": "9440",
+					"path": [
+						"api",
+						"nutanix",
+						"v3",
+						"vms",
+						"0f67fb06-1d17-4590-bc54-33c6c1125b47"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change VM details",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"spec\": {\r\n        \"cluster_reference\": {\r\n            \"kind\": \"cluster\",\r\n            \"name\": \"PHX-POC295\",\r\n            \"uuid\": \"0005e1cc-90fb-9d55-0000-00000000e121\"\r\n        },\r\n        \"resources\": {\r\n            \"num_threads_per_core\": 1,\r\n            \"vnuma_config\": {\r\n                \"num_vnuma_nodes\": 0\r\n            },\r\n            \"serial_port_list\": [],\r\n            \"nic_list\": [\r\n                {\r\n                    \"nic_type\": \"NORMAL_NIC\",\r\n                    \"uuid\": \"3a5ce705-5869-47fa-aa79-91eeb8505a74\",\r\n                    \"ip_endpoint_list\": [],\r\n                    \"vlan_mode\": \"ACCESS\",\r\n                    \"mac_address\": \"50:6b:8d:9e:78:86\",\r\n                    \"subnet_reference\": {\r\n                        \"kind\": \"subnet\",\r\n                        \"name\": \"Primary\",\r\n                        \"uuid\": \"83a94cd3-dded-4738-9204-9d43c923f344\"\r\n                    },\r\n                    \"is_connected\": true,\r\n                    \"trunked_vlan_list\": []\r\n                }\r\n            ],\r\n            \"num_vcpus_per_socket\": 1,\r\n            \"num_sockets\": 1,\r\n            \"gpu_list\": [],\r\n            \"is_agent_vm\": false,\r\n            \"memory_size_mib\": 4096,\r\n            \"boot_config\": {\r\n                \"boot_device_order_list\": [\r\n                    \"CDROM\",\r\n                    \"DISK\",\r\n                    \"NETWORK\"\r\n                ],\r\n                \"boot_type\": \"LEGACY\"\r\n            },\r\n            \"hardware_clock_timezone\": \"UTC\",\r\n            \"power_state_mechanism\": {\r\n                \"guest_transition_config\": {\r\n                    \"should_fail_on_script_failure\": false,\r\n                    \"enable_script_exec\": false\r\n                },\r\n                \"mechanism\": \"HARD\"\r\n            },\r\n            \"power_state\": \"OFF\",\r\n            \"machine_type\": \"PC\",\r\n            \"vga_console_enabled\": true,\r\n            \"memory_overcommit_enabled\": false,\r\n            \"disk_list\": [\r\n                {\r\n                    \"uuid\": \"35d072ba-2c62-4fd5-a956-b9d5afd9c427\",\r\n                    \"disk_size_bytes\": 10737418240,\r\n                    \"storage_config\": {\r\n                        \"storage_container_reference\": {\r\n                            \"kind\": \"storage_container\",\r\n                            \"uuid\": \"7d1b45ea-f337-4c23-b3c9-70ad41b62c9d\",\r\n                            \"name\": \"SelfServiceContainer\"\r\n                        }\r\n                    },\r\n                    \"device_properties\": {\r\n                        \"disk_address\": {\r\n                            \"device_index\": 0,\r\n                            \"adapter_type\": \"SCSI\"\r\n                        },\r\n                        \"device_type\": \"DISK\"\r\n                    },\r\n                    \"data_source_reference\": {\r\n                        \"kind\": \"image\",\r\n                        \"uuid\": \"221e3a04-8c15-4f3c-a81c-3f8db99f7257\"\r\n                    },\r\n                    \"disk_size_mib\": 10240\r\n                }\r\n            ]\r\n        },\r\n        \"name\": \"GL-Test-1\"\r\n    },\r\n    \"api_version\": \"3.1\",\r\n    \"metadata\": {\r\n        \"last_update_time\": \"2023-02-13T08:10:54Z\",\r\n        \"kind\": \"vm\",\r\n        \"uuid\": \"0f67fb06-1d17-4590-bc54-33c6c1125b47\",\r\n        \"project_reference\": {\r\n            \"kind\": \"project\",\r\n            \"name\": \"_internal\",\r\n            \"uuid\": \"d67f806e-b630-4a49-9d75-4ebd9a8680fc\"\r\n        },\r\n        \"creation_time\": \"2023-02-13T08:10:54Z\",\r\n        \"spec_version\": 6,\r\n        \"categories_mapping\": {\r\n            \"Criticity\": [\r\n                \"Non-Production\"\r\n            ]\r\n        },\r\n        \"entity_version\": \"10\",\r\n        \"owner_reference\": {\r\n            \"kind\": \"user\",\r\n            \"name\": \"admin\",\r\n            \"uuid\": \"00000000-0000-0000-0000-000000000000\"\r\n        },\r\n        \"categories\": {\r\n            \"Criticity\": \"Non-Production\",\r\n            \"gl_category\": \"yes\"\r\n        }\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "https://{{PC_IP}}:9440/api/nutanix/v3/vms/0f67fb06-1d17-4590-bc54-33c6c1125b47",
+					"protocol": "https",
+					"host": [
+						"{{PC_IP}}"
+					],
+					"port": "9440",
+					"path": [
+						"api",
+						"nutanix",
+						"v3",
+						"vms",
+						"0f67fb06-1d17-4590-bc54-33c6c1125b47"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "nx2Tech123#",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "admin",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
