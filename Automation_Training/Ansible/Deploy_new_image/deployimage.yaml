@@ -1,0 +1,27 @@
+- name: Images playbook
+  hosts: localhost
+  gather_facts: false
+  collections:
+    - nutanix.ncp
+  module_defaults:
+    group/nutanix.ncp.ntnx:
+      nutanix_host: "<IPi or FQDN>"
+      nutanix_username: "<user>"
+      nutanix_password: "<password>"
+      validate_certs: false
+  tasks:
+    - name: Setting Variables
+      set_fact:
+        source_uri: "<Image URL>"
+        clusters_name:  "<Cluster Name>"
+
+    - name: create image from with source as remote server file location
+      ntnx_images:
+        state: "present"
+        source_uri: "{{source_uri}}"
+        clusters:
+          - name: "{{clusters_name}}"
+        name: "GL-ansible-test"
+        desc: "my description"
+        image_type: "DISK_IMAGE"
+        wait: true
