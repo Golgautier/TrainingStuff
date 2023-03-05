@@ -1,0 +1,36 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: fk-pvc01
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
+  storageClassName: default-storageclass
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-with-pvc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        volumeMounts:
+        - name: fk-pv
+          mountPath: /data
+      volumes:
+      - name: fk-pv
+        persistentVolumeClaim:
+          claimName: fk-pvc01

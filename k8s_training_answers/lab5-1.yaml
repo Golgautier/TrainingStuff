@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dp-myapp
+  labels:
+    app: myapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      name: myapp
+      labels:
+        app: myapp
+        type: webserver
+    spec:
+      containers:
+      - name: myapp
+        image: registry.ntnx.fr/training/nginx
+        ports:
+          - containerPort: 80

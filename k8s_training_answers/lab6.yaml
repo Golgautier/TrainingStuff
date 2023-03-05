@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dp-myapp2
+  labels:
+    app: myapp2
+  namespace: fk-namespace-b
+spec:
+  #strategy: 
+  #  type: Recreate
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp2
+  template:
+    metadata:
+      name: myapp2
+      labels:
+        app: myapp2
+        type: webserver
+    spec:
+      containers:
+      - name: myapp
+        image: registry.ntnx.fr/training/lab-06
+        ports:
+          - containerPort: 80
