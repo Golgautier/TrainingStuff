@@ -1,0 +1,48 @@
+body {
+    font-family: "Montserrat light";
+}
+
+#welcome {
+    text-align: center;
+}
+
+#maintitle {
+    text-align: center;
+}
+
+#display_values {
+    margin: 0 auto;
+    border: 1px;
+    border-color: black;
+
+}
+
+#dv_image {
+    width: 50%;
+    float: left;
+    text-align: right;
+  }
+   
+#dv_infos {
+    width: 50%;
+    float: left;
+    text-align: left;
+  }
+
+img#status {
+    width: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+li {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#error {
+    text-align: center;
+    vertical-align: middle;
+}

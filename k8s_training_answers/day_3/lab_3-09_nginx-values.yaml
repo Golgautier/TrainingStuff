@@ -1,0 +1,5 @@
+# Default values for demo-helm.
+controller: 
+  image:
+    repository: registry.ntnx.fr/proxy-dockerhub/nginx/nginx-ingress
+  setAsDefaultIngress: true

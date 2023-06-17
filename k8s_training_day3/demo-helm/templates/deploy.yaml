@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.deployment.name }}
+  labels:
+    app: {{ .Values.deployment.app_name }}
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.deployment.app_name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.deployment.app_name }}
+    spec:
+      containers:
+      - name: my-cont
+        image: {{ .Values.deployment.image }}
+        imagePullPolicy: Always
+        env:
+          - name: LAB_NUMBER
+            value: {{ .Values.deployment.lab_number | quote }}
+          {{ if .Values.configmap.enabled }}
+          - name: MYNAMEIS
+            valueFrom:
+              configMapKeyRef:
+                name: my-configmap
+                key: my-name
+          {{ end }}
+          {{ if .Values.secret.enabled }}
+          - name: MYPASSWORDIS
+            valueFrom:
+              secretKeyRef:
+                name: my-secret
+                key: my-password
+          {{- end }}
+        volumeMounts:
+            {{ if .Values.configmap.enabled }}
+            - mountPath: /data
+              name: fromconfigmap
+            {{ end }}
+            {{ if .Values.pvc.enabled }}
+            - mountPath: /pvdata
+              name: mypvc
+            {{ end }}
+      volumes:
+        {{ if .Values.configmap.enabled }}
+        - name: fromconfigmap
+          configMap:
+            name: {{ .Values.configmap.name }}
+            items:
+              - key: my-data
+                path: "MyData.txt"
+        {{ end }}
+        {{ if .Values.pvc.enabled }}
+        - name: mypvc
+          persistentVolumeClaim:
+            claimName: {{ .Values.pvc.name }}
+        {{ end }}

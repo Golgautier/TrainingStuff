@@ -1,0 +1,22 @@
+# Default values for demo-helm.
+deployment:
+  lab_number: 9
+
+pvc:
+  enabled: true
+
+secret:
+  enabled: true
+  password_value: TW9uU2VjcmV0Cg==
+
+configmap:
+  enabled: true
+  my_name:
+    value: "Gautier LEBLANC"
+  my_data:
+    value: "Ma data 
+            qui me plait"
+
+ingress:
+  enabled: true
+  url: test.mondomaine.com

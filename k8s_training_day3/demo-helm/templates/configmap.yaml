@@ -1,0 +1,11 @@
+{{- if .Values.configmap.enabled -}}
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.configmap.name }}
+data:
+  my-name: {{ .Values.configmap.my_name.value }}
+  my-data: {{ .Values.configmap.my_data.value }}
+
+{{- end }}

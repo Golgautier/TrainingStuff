@@ -1,0 +1,37 @@
+# Default values for demo-helm.
+deployment:
+  name: my-dep
+  app_name: my-app
+  replicas: "1"
+  image: registry.ntnx.fr/local/k8s_day3:1.0
+  lab_number: 0
+
+service:
+  name: my-service
+  type: ClusterIP
+  port: 80
+  targetport: 80
+
+pvc:
+  enabled: false
+  name: my-pvc
+  size: 4Gi
+
+secret:
+  enabled: false
+  name: my-secret
+  password:
+    value: RGVmYXVsdAo=
+
+configmap:
+  enabled: false
+  name: my-configmap
+  my_name:
+    value: "Default"
+  my_data:
+    value: "Default"
+
+ingress:
+  enabled: false
+  name: my-ingress
+  url: my-app.domain.com

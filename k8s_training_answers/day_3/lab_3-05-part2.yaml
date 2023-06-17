@@ -1,0 +1,19 @@
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshotClass
+metadata:
+  name: my-snapshot-class
+driver: csi.nutanix.com
+parameters:
+  storageType: NutanixVolumes
+  csi.storage.k8s.io/snapshotter-secret-name:  ntnx-secret-0005fe18-2c38-c379-3b44-ac1f6b3bba8b
+  csi.storage.k8s.io/snapshotter-secret-namespace: kube-system
+deletionPolicy: Delete
+---
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshot
+metadata:
+  name: my-first-snapshot
+spec:
+  volumeSnapshotClassName: my-snapshot-class
+  source:
+    persistentVolumeClaimName: my-pvc
